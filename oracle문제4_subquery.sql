@@ -2,9 +2,28 @@
        문제
  -------------------------------------------------------------*/
 1) department_id가 60인 부서의 도시명을 알아내는 SELECT문장을 기술하시오
-
+SELECT l.city
+FROM locations l, departments d
+WHERE l.location_id = d.location_id(+)
+AND d.department_id = (
+    SELECT e.department_id
+    FROM employees e
+    WHERE e.department_id = 60
+);
     
 2)사번이 107인 사원과 부서가같고,167번의 급여보다 많은 사원들의 사번,이름(first_name),급여를 출력하시오.
+SELECT e.employee_id, e.first_name, e.salary
+FROM employees e, departments d
+WHERE d.department_name=(
+    SELECT d.department_name
+    FROM employees e, departments d
+    WHERE e.employee_id = 107)
+AND e.salary > (
+    SELECT e.salary
+    FROM employees e
+    WHERE e.employee_id = 167);
+
+
    
                   
 3) 급여평균보다 급여를 적게받는 사원들중 커미션을 받는 사원들의 사번,이름(first_name),급여,커미션 퍼센트를 출력하시오.
