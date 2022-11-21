@@ -40,22 +40,5 @@ FROM employees e, departments d, locations l
 WHERE e.department_id = d.department_id
 AND d.location_id = l.location_id;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT * FROM mem
+ORDER BY num DESC;
