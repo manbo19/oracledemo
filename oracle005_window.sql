@@ -1,5 +1,6 @@
  /*
  ROLLUP( )함수, CUBE( )함수
+ https://androphil.tistory.com/166
  */
  
 SELECT department_id, job_id, count(*)
@@ -9,6 +10,7 @@ ORDER BY department_id, job_id;
 
  /*
  <ROLLUP( )함수>
+ 일반적인 누적에 대한 총계를 구할 때 사용
  
  ROLLUP(column1, column2)
        (column1, column2)
