@@ -32,9 +32,8 @@ commit;
 
 SELECT * FROM board;
 
-select num, readcount 
-from board
-where num=2;
+select *
+from board;
 
 
 select num, subject, ref, re_step, re_level
@@ -62,7 +61,13 @@ select b.* from
 (select rownum as rm, a.* from(
   select num, ref, re_step,re_level from board
   order by ref desc, re_step asc) a)b
-where b.rm >=1  and b.rm<=5
+where b.rm >=1  and b.rm<=5;
+
+select b.* from 
+(select rownum as rm, a.* from(
+  select * from board
+  order by ref desc, re_step asc) a)b
+where b.rm >=1  and b.rm<=5;
 
 delete from board where num=23;
 
