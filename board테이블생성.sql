@@ -38,9 +38,17 @@ from board;
 
 select num, subject, ref, re_step, re_level
 from board
-order by ref desc, re_step asc
+order by ref desc, re_step asc;
 
-
+select num, subject, ref, re_step, re_level, upload
+from board
+order by num asc;
+                            ↱들여쓰기 목적
+num  subject  ref  re_step  re_level
+1    제목1      1      0         0
+2    우와       2      0         0
+3    답변1      2      2         1
+4    답변2      2      1         1
 
 select b.* 
 from (select rownum as rm, a.*
@@ -48,7 +56,6 @@ from (select rownum as rm, a.*
 	 	    from board
             order by ref desc, re_step asc) a)b
 where b.rm>=? and b.rm<=?           
-
 
 
 delete from board
